@@ -5,7 +5,7 @@ function db(): PDO {
     $port = getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: '3306';
     $user = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root';
     $pass = getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '';
-    $name = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'northwind';
+    $name = getenv('MYSQL_DATABASE') ?: getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'railway';
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$name;charset=utf8mb4", $user, $pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
